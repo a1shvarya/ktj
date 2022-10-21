@@ -1,0 +1,52 @@
+Process Related to Instance 1:
+
+Create two instances instance 1 and instance 2 in two different availability zones. lets say in 1a & 1b
+
+Now Create new 5gb Volume 1 in 1a availability zone & attach it to instance 1
+Now launch the instance 1 and mount the volume 1 to it,
+after mounting vol1 to instance 1
+
+( commands for mounting vol1 :
+  •fdisk -l
+  •mkfs -V -t ext4 /dev/xvdf
+  •mount /dev/xvdf /mnt
+  •cd /mnt 
+  Here create A,B,C directories in this /mnt mounted directory.
+
+Now Go To Volume option, select on action and create snapshot of volume 1. After creating Snapshot1 now again add/create directories D,E,F in vol1, Now create Snapshot of this incremented volume and give it a name Snapshot2.
+
+
+
+Process Related To Instance 2:
+Part 1
+
+Here instance 2 is created in 1b availability zone,
+So Create Volume of Snapshot2 in this availability zone 1b & give it name Vol2.
+Now attach this created vol2 to instance2.
+Now Mount Vol2 to Instance2.
+( commands for mounting vol2 :
+  •fdisk -l
+  don't use format commond here
+  •mount /dev/xvdf /mnt
+  •cd /mnt 
+  •ls -l
+  Now here check whether our directories are there or not (A,B,C,D,E,F,).
+
+Part 2
+
+Now create Volume from Snapshot1 in 1b availability zone so that we can attach this volume to Instance2 (give name to this volume as Vol3).
+Now attach this Vol3 to this Instance2.
+
+Now While mounting this Vol3  to Instance2, our Instance 2 is running so come out of directory
+/mnt by usning cd .. command
+
+
+( commands for mounting Vol3 :
+  •fdisk -l
+  don't use format commond here
+  •mount /dev/xvdg /devops
+  •cd /devops
+  •ls -l
+  Now here check whether vol1 directories are there or not (A,B,C,).
+
+DONE.
