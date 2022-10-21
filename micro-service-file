@@ -15,8 +15,6 @@ after mounting vol1 to instance 1
 
 Now Go To Volume option, select on action and create snapshot of volume 1. After creating Snapshot1 now again add/create directories D,E,F in vol1, Now create Snapshot of this incremented volume and give it a name Snapshot2.
 
-
-
 Process Related To Instance 2:
 Part 1
 
